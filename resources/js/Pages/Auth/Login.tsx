@@ -1,9 +1,10 @@
-import { useEffect, FormEventHandler } from 'react';
+import React, { useEffect, FormEventHandler } from 'react';
 import Checkbox from '@/Components/Checkbox';
 import GuestLayout from '@/Layouts/GuestLayout';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
+import { Button } from "@/Components/ui/button"
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
 
@@ -25,6 +26,12 @@ export default function Login({ status, canResetPassword }: { status?: string, c
 
         post(route('login'));
     };
+
+    const developmentLogin = (e: React.FormEvent<HTMLButtonElement>): void => {
+        e.preventDefault();
+
+        post(route('loginLinkLogin'));
+    }
 
     return (
         <GuestLayout>
@@ -77,7 +84,10 @@ export default function Login({ status, canResetPassword }: { status?: string, c
                     </label>
                 </div>
 
-                <div className="flex items-center justify-end mt-4">
+                <div className="flex items-center justify-between justify-end mt-4">
+                    <Button
+                        className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        onClick={developmentLogin} variant="link">Developer login</Button>
                     {canResetPassword && (
                         <Link
                             href={route('password.request')}
