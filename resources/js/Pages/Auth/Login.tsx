@@ -84,7 +84,7 @@ export default function Login({ status, canResetPassword }: { status?: string, c
                     </label>
                 </div>
 
-                <div className="flex items-center justify-between justify-end mt-4">
+                <div className="flex items-center justify-between mt-4">
                     <Button
                         className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                         onClick={developmentLogin} variant="link">Developer login</Button>
